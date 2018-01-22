@@ -1,0 +1,246 @@
+nvidia@devtools-devbox2:/raid/victor/pix2pixHD/devtools$ sh run_sample.sh
+------------ Options -------------
+aspect_ratio: 1.0
+batchSize: 1
+checkpoints_dir: ./checkpoints
+cluster_path: features_clustered_010.npy
+dataroot: ./datasets/cityscapes/
+display_winsize: 512
+feat_num: 3
+fineSize: 512
+gpu_ids: [0]
+how_many: 50
+instance_feat: False
+isTrain: False
+label_feat: False
+label_nc: 35
+loadSize: 1024
+load_features: False
+max_dataset_size: inf
+nThreads: 2
+n_blocks_global: 9
+n_blocks_local: 3
+n_clusters: 10
+n_downsample_E: 4
+n_downsample_global: 4
+n_local_enhancers: 1
+name: label2city_1024p
+nef: 16
+netG: local
+ngf: 32
+niter_fix_global: 0
+no_flip: False
+no_instance: False
+norm: instance
+ntest: inf
+output_nc: 3
+phase: test
+resize_or_crop: none
+results_dir: ./results/
+serial_batches: False
+tf_log: False
+use_dropout: False
+which_epoch: latest
+-------------- End ----------------
+CustomDatasetDataLoader
+dataset [AlignedDataset] was created
+LocalEnhancer (
+  (model): Sequential (
+    (0): ReflectionPad2d (3, 3, 3, 3)
+    (1): Conv2d(36, 64, kernel_size=(7, 7), stride=(1, 1))
+    (2): InstanceNorm2d(64, eps=1e-05, momentum=0.1, affine=False)
+    (3): ReLU (inplace)
+    (4): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+    (5): InstanceNorm2d(128, eps=1e-05, momentum=0.1, affine=False)
+    (6): ReLU (inplace)
+    (7): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+    (8): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False)
+    (9): ReLU (inplace)
+    (10): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+    (11): InstanceNorm2d(512, eps=1e-05, momentum=0.1, affine=False)
+    (12): ReLU (inplace)
+    (13): Conv2d(512, 1024, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+    (14): InstanceNorm2d(1024, eps=1e-05, momentum=0.1, affine=False)
+    (15): ReLU (inplace)
+    (16): ResnetBlock (
+      (conv_block): Sequential (
+        (0): ReflectionPad2d (1, 1, 1, 1)
+        (1): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1))
+        (2): InstanceNorm2d(1024, eps=1e-05, momentum=0.1, affine=False)
+        (3): ReLU (inplace)
+        (4): ReflectionPad2d (1, 1, 1, 1)
+        (5): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1))
+        (6): InstanceNorm2d(1024, eps=1e-05, momentum=0.1, affine=False)
+      )
+    )
+    (17): ResnetBlock (
+      (conv_block): Sequential (
+        (0): ReflectionPad2d (1, 1, 1, 1)
+        (1): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1))
+        (2): InstanceNorm2d(1024, eps=1e-05, momentum=0.1, affine=False)
+        (3): ReLU (inplace)
+        (4): ReflectionPad2d (1, 1, 1, 1)
+        (5): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1))
+        (6): InstanceNorm2d(1024, eps=1e-05, momentum=0.1, affine=False)
+      )
+    )
+    (18): ResnetBlock (
+      (conv_block): Sequential (
+        (0): ReflectionPad2d (1, 1, 1, 1)
+        (1): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1))
+        (2): InstanceNorm2d(1024, eps=1e-05, momentum=0.1, affine=False)
+        (3): ReLU (inplace)
+        (4): ReflectionPad2d (1, 1, 1, 1)
+        (5): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1))
+        (6): InstanceNorm2d(1024, eps=1e-05, momentum=0.1, affine=False)
+      )
+    )
+    (19): ResnetBlock (
+      (conv_block): Sequential (
+        (0): ReflectionPad2d (1, 1, 1, 1)
+        (1): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1))
+        (2): InstanceNorm2d(1024, eps=1e-05, momentum=0.1, affine=False)
+        (3): ReLU (inplace)
+        (4): ReflectionPad2d (1, 1, 1, 1)
+        (5): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1))
+        (6): InstanceNorm2d(1024, eps=1e-05, momentum=0.1, affine=False)
+      )
+    )
+    (20): ResnetBlock (
+      (conv_block): Sequential (
+        (0): ReflectionPad2d (1, 1, 1, 1)
+        (1): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1))
+        (2): InstanceNorm2d(1024, eps=1e-05, momentum=0.1, affine=False)
+        (3): ReLU (inplace)
+        (4): ReflectionPad2d (1, 1, 1, 1)
+        (5): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1))
+        (6): InstanceNorm2d(1024, eps=1e-05, momentum=0.1, affine=False)
+      )
+    )
+    (21): ResnetBlock (
+      (conv_block): Sequential (
+        (0): ReflectionPad2d (1, 1, 1, 1)
+        (1): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1))
+        (2): InstanceNorm2d(1024, eps=1e-05, momentum=0.1, affine=False)
+        (3): ReLU (inplace)
+        (4): ReflectionPad2d (1, 1, 1, 1)
+        (5): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1))
+        (6): InstanceNorm2d(1024, eps=1e-05, momentum=0.1, affine=False)
+      )
+    )
+    (22): ResnetBlock (
+      (conv_block): Sequential (
+        (0): ReflectionPad2d (1, 1, 1, 1)
+        (1): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1))
+        (2): InstanceNorm2d(1024, eps=1e-05, momentum=0.1, affine=False)
+        (3): ReLU (inplace)
+        (4): ReflectionPad2d (1, 1, 1, 1)
+        (5): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1))
+        (6): InstanceNorm2d(1024, eps=1e-05, momentum=0.1, affine=False)
+      )
+    )
+    (23): ResnetBlock (
+      (conv_block): Sequential (
+        (0): ReflectionPad2d (1, 1, 1, 1)
+        (1): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1))
+        (2): InstanceNorm2d(1024, eps=1e-05, momentum=0.1, affine=False)
+        (3): ReLU (inplace)
+        (4): ReflectionPad2d (1, 1, 1, 1)
+        (5): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1))
+        (6): InstanceNorm2d(1024, eps=1e-05, momentum=0.1, affine=False)
+      )
+    )
+    (24): ResnetBlock (
+      (conv_block): Sequential (
+        (0): ReflectionPad2d (1, 1, 1, 1)
+        (1): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1))
+        (2): InstanceNorm2d(1024, eps=1e-05, momentum=0.1, affine=False)
+        (3): ReLU (inplace)
+        (4): ReflectionPad2d (1, 1, 1, 1)
+        (5): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1))
+        (6): InstanceNorm2d(1024, eps=1e-05, momentum=0.1, affine=False)
+      )
+    )
+    (25): ConvTranspose2d(1024, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), output_padding=(1, 1))
+    (26): InstanceNorm2d(512, eps=1e-05, momentum=0.1, affine=False)
+    (27): ReLU (inplace)
+    (28): ConvTranspose2d(512, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), output_padding=(1, 1))
+    (29): InstanceNorm2d(256, eps=1e-05, momentum=0.1, affine=False)
+    (30): ReLU (inplace)
+    (31): ConvTranspose2d(256, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), output_padding=(1, 1))
+    (32): InstanceNorm2d(128, eps=1e-05, momentum=0.1, affine=False)
+    (33): ReLU (inplace)
+    (34): ConvTranspose2d(128, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), output_padding=(1, 1))
+    (35): InstanceNorm2d(64, eps=1e-05, momentum=0.1, affine=False)
+    (36): ReLU (inplace)
+  )
+  (model1_1): Sequential (
+    (0): ReflectionPad2d (3, 3, 3, 3)
+    (1): Conv2d(36, 32, kernel_size=(7, 7), stride=(1, 1))
+    (2): InstanceNorm2d(32, eps=1e-05, momentum=0.1, affine=False)
+    (3): ReLU (inplace)
+    (4): Conv2d(32, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+    (5): InstanceNorm2d(64, eps=1e-05, momentum=0.1, affine=False)
+    (6): ReLU (inplace)
+  )
+  (model1_2): Sequential (
+    (0): ResnetBlock (
+      (conv_block): Sequential (
+        (0): ReflectionPad2d (1, 1, 1, 1)
+        (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1))
+        (2): InstanceNorm2d(64, eps=1e-05, momentum=0.1, affine=False)
+        (3): ReLU (inplace)
+        (4): ReflectionPad2d (1, 1, 1, 1)
+        (5): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1))
+        (6): InstanceNorm2d(64, eps=1e-05, momentum=0.1, affine=False)
+      )
+    )
+    (1): ResnetBlock (
+      (conv_block): Sequential (
+        (0): ReflectionPad2d (1, 1, 1, 1)
+        (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1))
+        (2): InstanceNorm2d(64, eps=1e-05, momentum=0.1, affine=False)
+        (3): ReLU (inplace)
+        (4): ReflectionPad2d (1, 1, 1, 1)
+        (5): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1))
+        (6): InstanceNorm2d(64, eps=1e-05, momentum=0.1, affine=False)
+      )
+    )
+    (2): ResnetBlock (
+      (conv_block): Sequential (
+        (0): ReflectionPad2d (1, 1, 1, 1)
+        (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1))
+        (2): InstanceNorm2d(64, eps=1e-05, momentum=0.1, affine=False)
+        (3): ReLU (inplace)
+        (4): ReflectionPad2d (1, 1, 1, 1)
+        (5): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1))
+        (6): InstanceNorm2d(64, eps=1e-05, momentum=0.1, affine=False)
+      )
+    )
+    (3): ConvTranspose2d(64, 32, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), output_padding=(1, 1))
+    (4): InstanceNorm2d(32, eps=1e-05, momentum=0.1, affine=False)
+    (5): ReLU (inplace)
+    (6): ReflectionPad2d (3, 3, 3, 3)
+    (7): Conv2d(32, 3, kernel_size=(7, 7), stride=(1, 1))
+    (8): Tanh ()
+  )
+  (downsample): AvgPool2d (size=3, stride=2, padding=[1, 1], ceil_mode=False, count_include_pad=False)
+)
+---------- Networks initialized -------------
+model [Pix2PixHDModel] was created
+process image... ['./datasets/cityscapes/test_label/frankfurt_000000_000576_gtFine_labelIds.png']
+process image... ['./datasets/cityscapes/test_label/frankfurt_000000_001236_gtFine_labelIds.png']
+process image... ['./datasets/cityscapes/test_label/frankfurt_000000_003357_gtFine_labelIds.png']
+process image... ['./datasets/cityscapes/test_label/frankfurt_000000_011810_gtFine_labelIds.png']
+process image... ['./datasets/cityscapes/test_label/frankfurt_000000_012868_gtFine_labelIds.png']
+process image... ['./datasets/cityscapes/test_label/frankfurt_000001_013710_gtFine_labelIds.png']
+process image... ['./datasets/cityscapes/test_label/frankfurt_000001_015328_gtFine_labelIds.png']
+process image... ['./datasets/cityscapes/test_label/frankfurt_000001_023769_gtFine_labelIds.png']
+process image... ['./datasets/cityscapes/test_label/frankfurt_000001_028335_gtFine_labelIds.png']
+process image... ['./datasets/cityscapes/test_label/frankfurt_000001_032711_gtFine_labelIds.png']
+process image... ['./datasets/cityscapes/test_label/frankfurt_000001_033655_gtFine_labelIds.png']
+process image... ['./datasets/cityscapes/test_label/frankfurt_000001_042733_gtFine_labelIds.png']
+process image... ['./datasets/cityscapes/test_label/frankfurt_000001_047552_gtFine_labelIds.png']
+process image... ['./datasets/cityscapes/test_label/frankfurt_000001_054640_gtFine_labelIds.png']
+process image... ['./datasets/cityscapes/test_label/frankfurt_000001_055387_gtFine_labelIds.png']
+
