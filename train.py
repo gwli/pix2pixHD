@@ -12,6 +12,8 @@ import numpy as np
 import torch
 from torch.autograd import Variable
 
+
+
 opt = TrainOptions().parse()
 iter_path = os.path.join(opt.checkpoints_dir, opt.name, 'iter.txt')
 if opt.continue_train:
